@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RideNest - Vehicle Information</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f1;
+    color: #202020;
+}
+
+/* HEADER */
+
+header {
+    height: 87px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-bottom: 1px solid #e5e5df;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #202020;
+    text-decoration: none;
+}
+
+.logo span {
+    background: #ed6b36;
+    color: white;
+    padding: 10px;
+    margin-right: 7px;
+}
+
+nav {
+    display: flex;
+    gap: 23px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 13px;
+}
+
+nav a:hover,
+nav .active {
+    color: #ed6b36;
+}
+
+.nav-btn {
+    background: #ed6b36;
+    color: white;
+    padding: 13px 20px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* PAGE HERO */
+
+.page-hero {
+    padding: 70px 7% 55px;
+    background: #eeefe7;
+    border-bottom: 1px solid #deded5;
+}
+
+.eyebrow {
+    color: #ed6b36;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.page-hero h1 {
+    font-size: 55px;
+    margin: 18px 0;
+    letter-spacing: -2px;
+}
+
+.page-hero h1 em {
+    color: #ed6b36;
+    font-style: normal;
+}
+
+.page-hero p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 550px;
+}
+
+/* VEHICLE SECTION */
+
+.vehicle-section {
+    padding: 50px 7% 80px;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    margin-top: 10px;
+}
+
+.section-heading p {
+    color: #888;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* FILTER BAR */
+
+.filter-bar {
+    display: grid;
+    grid-template-columns: 1fr 180px 180px;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.filter-bar input,
+.filter-bar select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #deded5;
+    background: white;
+    outline: none;
+}
+
+/* VEHICLE GRID */
+
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.vehicle-card {
+    background: white;
+    border: 1px solid #e5e5df;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px #242a190d;
+}
+
+.vehicle-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.vehicle-info {
+    padding: 18px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #8a8f86;
+}
+
+.type-pill {
+    color: #ed6b36;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+}
+
+.vehicle-info h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.vehicle-info p {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.vehicle-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eeeeea;
+    padding-top: 14px;
+}
+
+.vehicle-bottom strong {
+    font-size: 18px;
+}
+
+.vehicle-bottom small {
+    font-size: 10px;
+    color: #888;
+}
+
+.book-btn {
+    background: #202020;
+    color: white;
+    padding: 11px 17px;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+.book-btn:hover {
+    background: #ed6b36;
+}
+
+.empty-state {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    color: #888;
+}
+
+.demo-note {
+    color: #92968d;
+    font-size: 10px;
+    margin-top: 25px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #202020;
+    color: white;
+    padding: 30px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer p {
+    color: #aaa;
+    font-size: 12px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    .vehicle-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        gap: 10px;
+    }
+}
+
+@media(max-width: 650px) {
+    header {
+        height: auto;
+        padding: 20px 5%;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    nav {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .page-hero {
+        padding: 45px 5%;
+    }
+
+    .page-hero h1 {
+        font-size: 40px;
+    }
+
+    .vehicle-section {
+        padding: 30px 5% 60px;
+    }
+
+    .filter-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-card img {
+        height: 220px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<a href="overview.html" class="logo">
+    <span>R</span>RideNest
+</a>
+
+<nav class="nav">
+    <a href="overview.html">Overview</a>
+    <a href="vehicleinformation.html">Vehicle Information</a>
+    <a href="bookride.html">Book Ride</a>
+    <a href="Howitworks.html">How It Works</a>
+    <a href="Contactus.html">Contact Us</a>
+</nav>
+
+
+<a href="vehicleinformation.html" class="nav-btn">Explore vehicles ↗️</a>
+
+</header>
+
+<!-- PAGE HERO -->
+
+<section class="page-hero">
+
+<span class="eyebrow">OUR COLLECTION / 01</span>
+
+<h1>
+    Find your perfect
+    <em>ride.</em>
+</h1>
+
+<p>
+    From comfortable city cars to powerful bikes
+    and convenient scooters, discover a vehicle
+    that matches your journey.
+</p>
+
+</section>
+
+<!-- VEHICLE INFORMATION -->
+
+<section class="vehicle-section">
+
+<div class="section-heading">
+
+    <span class="eyebrow">THE FLEET</span>
+
+    <h2>Explore our vehicles.</h2>
+
+    <p>Choose from our collection of cars, bikes and scooters.</p>
+
+</div>
+
+<!-- SEARCH AND FILTER -->
+
+<div class="filter-bar">
+
+    <input type="text" id="search"
+    placeholder="Search your vehicle...">
+
+    <select id="typeFilter">
+        <option value="all">All Vehicles</option>
+        <option value="Car">Cars</option>
+        <option value="Bike">Bikes</option>
+        <option value="Scooter">Scooters</option>
+    </select>
+
+    <select id="priceFilter">
+        <option value="all">All Prices</option>
+        <option value="1000">Under ₹1,000</option>
+        <option value="1500">Under ₹1,500</option>
+    </select>
+
+</div>
+
+<!-- VEHICLE CARDS -->
+
+<div class="vehicle-grid" id="vehicleGrid">
+
+    <!-- HYUNDAI i20 -->
+
+    <article class="vehicle-card"
+    data-name="Hyundai i20"
+    data-price="1499"
+    data-type="Car">
+
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80"
+        alt="Hyundai i20">
+
+        <div class="vehicle-info">
+
+            <div class="card-meta">
+                <span class="type-pill">CAR</span>
+                <span>★ 4.9</span>
+            </div>
+
+            <h3>Hyundai i20</h3>
+            <p>Automatic · 5 seats · Petrol</p>
+
+            <div class="vehicle-bottom">
+                <div>
+                    <strong>₹1,499</strong>
+                    <small>/ day</small>
+                </div>
+
+                <a href="bookride.html?vehicle=Hyundai%20i20"
+                class="book-btn">Book now</a>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- HONDA CITY -->
+
+    <article class="vehicle-card"
+    data-name="Honda City"
+    data-price="1999"
+    data-type="Car">
+
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
+        alt="Honda City">
+
+        <div class="vehicle-info">
+
+            <div class="card-meta">
+                <span class="type-pill">CAR</span>
+                <span>★ 4.8</span>
+            </div>
+
+            <h3>Honda City</h3>
+            <p>Manual · 5 seats · Petrol</p>
+
+            <div class="vehicle-bottom">
+                <div>
+                    <strong>₹1,999</strong>
+                    <small>/ day</small>
+                </div>
+
+                <a href="bookride.html?vehicle=Honda%20City"
+                class="book-btn">Book now</a>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- ROYAL ENFIELD -->
+
+    <article class="vehicle-card"
+    data-name="Royal Enfield Classic 350"
+    data-price="899"
+    data-type="Bike">
+
+        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80"
+        alt="Royal Enfield">
+
+        <div class="vehicle-info">
+
+            <div class="card-meta">
+                <span class="type-pill">BIKE</span>
+                <span>★ 4.9</span>
+            </div>
+
+            <h3>Royal Enfield Classic 350</h3>
+            <p>350 cc · 2 seats · Petrol</p>
+
+            <div class="vehicle-bottom">
+                <div>
+                    <strong>₹899</strong>
+                    <small>/ day</small>
+                </div>
+
+                <a href="bookride.html?vehicle=Royal%20Enfield%20Classic%20350"
+                class="book-btn">Book now</a>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- YAMAHA MT-15 -->
+
+    <article class="vehicle-card"
+    data-name="Yamaha MT-15"
+    data-price="799"
+    data-type="Bike">
+
+        <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80"
+        alt="Yamaha MT-15">
+
+        <div class="vehicle-info">
+
+            <div class="card-meta">
+                <span class="type-pill">BIKE</span>
+                <span>★ 4.7</span>
+            </div>
+
+            <h3>Yamaha MT-15</h3>
+            <p>155 cc · 2 seats · Petrol</p>
+
+            <div class="vehicle-bottom">
+                <div>
+                    <strong>₹799</strong>
+                    <small>/ day</small>
+                </div>
+
+                <a href="bookride.html?vehicle=Yamaha%20MT-15"
+                class="book-btn">Book now</a>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- HONDA ACTIVA -->
+
+    <article class="vehicle-card"
+    data-name="Honda Activa 6G"
+    data-price="399"
+    data-type="Scooter">
+
+        <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=900&q=80"
+        alt="Honda Activa">
+
+        <div class="vehicle-info">
+
+            <div class="card-meta">
+                <span class="type-pill">SCOOTER</span>
+                <span>★ 4.8</span>
+            </div>
+
+            <h3>Honda Activa 6G</h3>
+            <p>110 cc · 2 seats · Petrol</p>
+
+            <div class="vehicle-bottom">
+                <div>
+                    <strong>₹399</strong>
+                    <small>/ day</small>
+                </div>
+
+                <a href="bookride.html?vehicle=Honda%20Activa%206G"
+                class="book-btn">Book now</a>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- TVS JUPITER -->
+
+    <article class="vehicle-card"
+    data-name="TVS Jupiter"
+    data-price="449"
+    data-type="Scooter">
+
+        <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=900&q=80"
+        alt="TVS Jupiter">
+
+        <div class="vehicle-info">
+
+            <div class="card-meta">
+                <span class="type-pill">SCOOTER</span>
+                <span>★ 4.6</span>
+            </div>
+
+            <h3>TVS Jupiter</h3>
+            <p>110 cc · 2 seats · Petrol</p>
+
+            <div class="vehicle-bottom">
+                <div>
+                    <strong>₹449</strong>
+                    <small>/ day</small>
+                </div>
+
+                <a href="bookride.html?vehicle=TVS%20Jupiter"
+                class="book-btn">Book now</a>
+            </div>
+
+        </div>
+    </article>
+
+</div>
+
+<p class="empty-state" id="emptyState">
+    No vehicles match your filters. Try another search.
+</p>
+
+<p class="demo-note">
+    Demo listing: vehicle details, rates and ratings are sample data.
+</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<a href="overview.html" class="logo">
+    <span>R</span>RideNest
+</a>
+
+<p>Move freely. Explore more.</p>
+
+<a href="Contactus.html">Contact Us</a>
+
+<p>©️ 2026 RideNest · Student project demo</p>
+
+</footer>
+
+</body>
+</html>
