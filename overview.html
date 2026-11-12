@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RideNest - Overview</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f7f2;
+    color: #202321;
+    line-height: 1.55;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* HEADER */
+
+.site-header {
+    height: 82px;
+    padding: 0 6.5%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #f7f7f2;
+    border-bottom: 1px solid #e8e8e1;
+}
+
+.brand {
+    font-family: Manrope, sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.brand-mark {
+    width: 31px;
+    height: 31px;
+    background: #e66b36;
+    color: white;
+    border-radius: 9px 9px 9px 2px;
+    display: grid;
+    place-items: center;
+    font-size: 19px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: auto;
+    font-size: 12px;
+    font-weight: 700;
+    color: #6e736c;
+}
+
+.nav a:hover {
+    color: #e66b36;
+}
+
+.nav-cta {
+    font-size: 12px;
+    font-weight: 700;
+    background: #202321;
+    color: white;
+    padding: 12px 17px;
+    border-radius: 4px;
+}
+
+/* HERO SECTION */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1.03fr;
+    gap: 6%;
+    padding: 75px 7% 62px;
+    align-items: center;
+    min-height: 560px;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: #e66b36;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-family: Manrope, sans-serif;
+    font-weight: 700;
+    letter-spacing: -3.5px;
+    line-height: 1.08;
+    font-size: clamp(42px, 5vw, 70px);
+    margin-bottom: 22px;
+}
+
+.hero h1 em {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    color: #e66b36;
+}
+
+.hero-content p {
+    max-width: 475px;
+    color: #737971;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-top: 29px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 14px 20px;
+    border: 0;
+    border-radius: 4px;
+    font: 700 12px 'DM Sans', sans-serif;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #e66b36;
+    color: white;
+}
+
+.text-link {
+    font-size: 12px;
+    font-weight: 800;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 5px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 37px;
+    margin-top: 47px;
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-stats strong {
+    font-family: Manrope, sans-serif;
+    font-size: 21px;
+}
+
+.hero-stats span {
+    font-size: 10px;
+    color: #777d76;
+}
+
+/* HERO IMAGE */
+
+.hero-art {
+    height: 420px;
+    position: relative;
+    background: #dfe4d0;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.hero-car {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.sun {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: #f6b27f;
+    top: -90px;
+    right: -25px;
+}
+
+.art-label {
+    position: absolute;
+    z-index: 2;
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: white;
+}
+
+.art-label b {
+    margin-left: 15px;
+    background: #e66b36;
+    padding: 8px 10px;
+}
+
+.label-top {
+    top: 23px;
+    left: 24px;
+}
+
+.label-bottom {
+    bottom: 22px;
+    left: 24px;
+}
+
+.floating-card {
+    position: absolute;
+    z-index: 3;
+    bottom: 58px;
+    right: 20px;
+    background: white;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 12px 35px #0002;
+}
+
+.floating-icon {
+    background: #fce6d9;
+    color: #e66b36;
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+}
+
+.floating-card b,
+.floating-card small {
+    display: block;
+}
+
+.floating-card b {
+    font-size: 11px;
+}
+
+.floating-card small {
+    font-size: 9px;
+    color: #777d76;
+    margin-top: 4px;
+}
+
+/* SEARCH PANEL */
+
+.search-panel {
+    margin: 0 7%;
+    padding: 28px 32px;
+    background: white;
+    border: 1px solid #e5e5dd;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    box-shadow: 0 15px 40px #25291b06;
+}
+
+.search-heading {
+    min-width: 220px;
+}
+
+.search-heading .eyebrow {
+    margin-bottom: 6px;
+}
+
+.search-heading h2 {
+    font-size: 18px;
+    line-height: 1.3;
+    font-family: Manrope;
+}
+
+.quick-search {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 12px;
+    align-items: end;
+    flex: 1;
+}
+
+.quick-search label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.quick-search select,
+.quick-search input {
+    width: 100%;
+    border: 1px solid #e5e5dd;
+    background: #fbfbf8;
+    padding: 12px 11px;
+    color: #202321;
+    font: 12px 'DM Sans', sans-serif;
+    border-radius: 3px;
+    min-width: 0;
+}
+
+.btn-dark {
+    background: #202321;
+    color: white;
+}
+
+/* FLEET SECTION */
+
+.section {
+    padding: 92px 7% 85px;
+}
+
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 27px;
+}
+
+.section-head h2 {
+    font-family: Manrope;
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+
+.section-head .eyebrow {
+    margin-bottom: 10px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.category-card img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+.category-card:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #111b 0%, transparent 70%);
+}
+
+.category-card div {
+    position: absolute;
+    z-index: 1;
+    bottom: 22px;
+    left: 24px;
+    color: white;
+}
+
+.category-card span {
+    font-size: 9px;
+    letter-spacing: 1.8px;
+}
+
+.category-card h3 {
+    font: 700 29px Manrope;
+    margin: 3px 0;
+}
+
+.category-card p {
+    font-size: 12px;
+    color: #eee;
+}
+
+/* FEATURE SECTION */
+
+.feature-band {
+    background: #252a25;
+    color: #f7f7f2;
+    padding: 70px 9%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+}
+
+.feature-band h2 {
+    font: 700 43px/1.15 Manrope;
+    letter-spacing: -2px;
+}
+
+.feature-band h2 em {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    color: #e66b36;
+}
+
+.feature-list article {
+    display: flex;
+    gap: 17px;
+    padding-bottom: 19px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #ffffff22;
+}
+
+.feature-list article > span {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #6d756b;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #f6a36f;
+    flex-shrink: 0;
+}
+
+.feature-list h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.feature-list p {
+    font-size: 12px;
+    color: #b9beb5;
+}
+
+/* BOTTOM CTA */
+
+.bottom-cta {
+    text-align: center;
+    padding: 78px 20px;
+}
+
+.bottom-cta h2 {
+    font: 700 37px Manrope;
+    letter-spacing: -1.5px;
+    margin-bottom: 8px;
+}
+
+.bottom-cta p {
+    font-size: 13px;
+    color: #777d76;
+    margin-bottom: 23px;
+}
+
+/* FOOTER */
+
+.footer {
+    padding: 28px 7%;
+    border-top: 1px solid #e5e5dd;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.footer .brand {
+    font-size: 18px;
+}
+
+.footer .brand-mark {
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+}
+
+.footer p {
+    font-size: 11px;
+    color: #777d76;
+    margin-right: auto;
+}
+
+.footer div {
+    display: flex;
+    gap: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.footer small {
+    width: 100%;
+    color: #989c94;
+    font-size: 10px;
+    border-top: 1px solid #e5e5dd;
+    padding-top: 15px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width: 1100px) {
+    .site-header {
+        padding: 0 4%;
+        gap: 15px;
+    }
+
+    .nav {
+        gap: 13px;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+        gap: 4%;
+    }
+
+    .search-panel {
+        margin: 0 5%;
+        display: block;
+    }
+
+    .search-heading {
+        margin-bottom: 20px;
+    }
+
+    .quick-search {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@media(max-width: 760px) {
+    .site-header {
+        height: auto;
+        padding: 18px 5%;
+        flex-wrap: wrap;
+    }
+
+    .nav {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 5% 35px;
+        gap: 35px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2.5px;
+    }
+
+    .hero-art {
+        height: 300px;
+    }
+
+    .hero-stats {
+        gap: 22px;
+        margin-top: 35px;
+    }
+
+    .search-panel {
+        padding: 23px 18px;
+        margin: 0 5%;
+    }
+
+    .quick-search {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .quick-search button {
+        grid-column: 1 / -1;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .section-head h2 {
+        font-size: 25px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card,
+    .category-card img {
+        height: 250px;
+        min-height: 250px;
+    }
+
+    .feature-band {
+        grid-template-columns: 1fr;
+        padding: 50px 7%;
+        gap: 35px;
+    }
+
+    .feature-band h2 {
+        font-size: 37px;
+    }
+
+    .bottom-cta h2 {
+        font-size: 29px;
+    }
+
+    .footer {
+        padding: 25px 5%;
+        gap: 12px;
+    }
+
+    .footer p {
+        width: 100%;
+        order: 3;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="site-header">
+
+<a class="brand" href="overview.html">
+    <span class="brand-mark">R</span>
+    RideNest
+</a>
+
+<nav class="nav">
+    <a href="overview.html">Overview</a>
+    <a href="vehicleinformation.html">Vehicle Information</a>
+    <a href="bookride.html">Book Ride</a>
+    <a href="Howitworks.html">How It Works</a>
+    <a href="Contactus.html">Contact Us</a>
+</nav>
+
+<a class="nav-cta" href="vehicleinformation.html">
+    Explore vehicles ↗️
+</a>
+
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<span class="eyebrow">YOUR JOURNEY, YOUR WAY</span>
+
+<h1>
+Find your ride.<br>
+<em>Own the moment.</em>
+</h1>
+
+<p>
+Cars for weekend escapes, scooters for city runs,
+and bikes for the scenic route. Choose your ride
+and get moving.
+</p>
+
+<div class="hero-actions">
+
+<a class="btn btn-primary" href="vehicleinformation.html">
+Explore vehicles <span>→</span>
+</a>
+
+<a class="text-link" href="Howitworks.html">
+How it works ↗️
+</a>
+
+</div>
+
+<div class="hero-stats">
+
+<div>
+<strong>120+</strong>
+<span>Vehicles listed</span>
+</div>
+
+<div>
+<strong>4.8/5</strong>
+<span>Rider rating</span>
+</div>
+
+<div>
+<strong>24/7</strong>
+<span>Booking access</span>
+</div>
+
+</div>
+</div>
+
+<!-- MAIN CAR IMAGE -->
+
+<div class="hero-art">
+
+<div class="sun"></div>
+
+<div class="art-label label-top">
+PICK YOUR RIDE <b>01</b>
+</div>
+
+<img
+class="hero-car"
+src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1100&q=85"
+alt="Sporty car on a road">
+
+<div class="floating-card">
+
+<span class="floating-icon">✦</span>
+
+<div>
+<b>Ready when you are</b>
+<small>Easy booking · Flexible plans</small>
+</div>
+
+</div>
+
+<div class="art-label label-bottom">
+MADE FOR THE OPEN ROAD
+</div>
+
+</div>
+</section>
+
+<!-- SEARCH PANEL -->
+
+<section class="search-panel">
+
+<div class="search-heading">
+
+<span class="eyebrow">START EXPLORING</span>
+
+<h2>Your next ride is a few clicks away.</h2>
+
+</div>
+
+<form action="vehicleinformation.html" class="quick-search">
+
+<label>
+Vehicle type
+<select name="type">
+<option value="all">All vehicles</option>
+<option>Car</option>
+<option>Bike</option>
+<option>Scooter</option>
+</select>
+</label>
+
+<label>
+Pickup date
+<input id="quickDate" name="date" type="date">
+</label>
+
+<label>
+Daily budget
+<select name="budget">
+<option value="all">Any budget</option>
+<option value="500">Under ₹500</option>
+<option value="1000">Under ₹1,000</option>
+<option value="2000">Under ₹2,000</option>
+</select>
+</label>
+
+<button class="btn btn-dark" type="submit">
+Find a ride →
+</button>
+
+</form>
+</section>
+
+<!-- FLEET SECTION -->
+
+<section class="section">
+
+<div class="section-head">
+
+<div>
+<span class="eyebrow">THE FLEET</span>
+<h2>Pick your kind of freedom.</h2>
+</div>
+
+<a class="text-link" href="vehicleinformation.html">
+View all vehicles ↗️
+</a>
+
+</div>
+
+<div class="category-grid">
+
+<!-- CAR IMAGE -->
+
+<a class="category-card" href="vehicleinformation.html?type=Car">
+
+<img
+src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=700&q=80"
+alt="Car">
+
+<div>
+<span>01 / COMFORT</span>
+<h3>Cars</h3>
+<p>From ₹1,499/day</p>
+</div>
+
+</a>
+
+<!-- BIKE IMAGE -->
+
+<a class="category-card" href="vehicleinformation.html?type=Bike">
+
+<img
+src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80"
+alt="Motorbike">
+
+<div>
+<span>02 / ADVENTURE</span>
+<h3>Bikes</h3>
+<p>From ₹699/day</p>
+</div>
+
+</a>
+
+<!-- SCOOTER IMAGE -->
+
+<a class="category-card" href="vehicleinformation.html?type=Scooter">
+
+<img
+src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=700&q=80"
+alt="Scooter">
+
+<div>
+<span>03 / CITY LIFE</span>
+<h3>Scooters</h3>
+<p>From ₹399/day</p>
+</div>
+
+</a>
+
+</div>
+</section>
+
+<!-- FEATURES SECTION -->
+
+<section class="feature-band">
+
+<div>
+
+<span class="eyebrow">THE RIDENEST PROMISE</span>
+
+<h2>
+Less planning.<br>
+<em>More living.</em>
+</h2>
+
+</div>
+
+<div class="feature-list">
+
+<article>
+<span>✦</span>
+<div>
+<h3>Clear, upfront pricing</h3>
+<p>Know the daily rate before you book. No surprise math.</p>
+</div>
+</article>
+
+<article>
+<span>◷</span>
+<div>
+<h3>Flexible booking</h3>
+<p>Choose your dates and find a vehicle that fits your plans.</p>
+</div>
+</article>
+
+<article>
+<span>✓</span>
+<div>
+<h3>Support that shows up</h3>
+<p>Need help? Our demo support team is just a message away.</p>
+</div>
+</article>
+
+</div>
+</section>
+
+<!-- BOTTOM CTA -->
+
+<section class="bottom-cta">
+
+<span class="eyebrow">THE ROAD IS CALLING</span>
+
+<h2>Where will you go next?</h2>
+
+<p>Browse the fleet and find a ride that fits your day.</p>
+
+<a class="btn btn-primary" href="vehicleinformation.html">
+Find your vehicle →
+</a>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<a class="brand" href="overview.html">
+    <span class="brand-mark">R</span>
+    RideNest
+</a>
+
+<p>Move freely. Explore more.</p>
+
+<div>
+<a href="Contactus.html">Contact Us</a>
+<a href="Howitworks.html">How It Works</a>
+</div>
+
+<small>©️ 2026 RideNest · Student project demo</small>
+
+</footer>
+
+</body>
+</html>
