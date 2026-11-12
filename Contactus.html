@@ -1,0 +1,522 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - RideNest</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f1;
+    color: #202020;
+}
+
+/* HEADER */
+
+.site-header {
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+.brand {
+    font-size: 25px;
+    font-weight: bold;
+    color: #202020;
+    text-decoration: none;
+}
+
+.brand-mark {
+    background: #e87542;
+    color: white;
+    padding: 9px 13px;
+    margin-right: 8px;
+    border-radius: 5px;
+}
+
+.nav {
+    display: flex;
+    gap: 25px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+}
+
+.nav a:hover {
+    color: #e87542;
+}
+
+.nav-cta {
+    background: #202020;
+    color: white;
+    padding: 13px 20px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* HERO SECTION */
+
+.page-hero {
+    padding: 65px 8% 55px;
+    background: #eeefe7;
+}
+
+.eyebrow {
+    color: #e87542;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.page-hero h1 {
+    font-size: 55px;
+    margin: 18px 0;
+    letter-spacing: -2px;
+}
+
+.page-hero h1 em {
+    color: #e87542;
+}
+
+.page-hero p {
+    color: #777;
+    font-size: 14px;
+}
+
+/* CONTACT SECTION */
+
+.contact-layout {
+    padding: 60px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+    align-items: start;
+}
+
+/* LEFT CONTENT */
+
+.contact-copy {
+    padding-top: 10px;
+}
+
+.contact-copy h2 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 18px 0;
+    max-width: 350px;
+}
+
+.contact-copy > p {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.9;
+    max-width: 400px;
+}
+
+/* CONTACT DETAILS */
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.contact-detail > span {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    background: #fce7da;
+    color: #e87542;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.contact-detail b {
+    font-size: 12px;
+}
+
+.contact-detail p {
+    font-size: 11px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.contact-note {
+    max-width: 390px;
+    background: #eeefe7;
+    padding: 18px;
+    margin-top: 28px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* CONTACT FORM */
+
+.form-card {
+    background: white;
+    padding: 35px;
+    border: 1px solid #e1e1d9;
+    box-shadow: 0 8px 25px #00000008;
+}
+
+.form-card h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.form-card label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+    width: 100%;
+    padding: 13px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    background: #fafaf7;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    outline: none;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+    border-color: #e87542;
+}
+
+.form-card textarea {
+    resize: vertical;
+}
+
+/* BUTTON */
+
+.btn {
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #e87542;
+    color: white;
+    padding: 15px 20px;
+}
+
+.btn-primary:hover {
+    background: #cf6032;
+}
+
+.btn-wide {
+    width: 100%;
+}
+
+.form-footnote {
+    font-size: 10px;
+    color: #888;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* FOOTER */
+
+.footer {
+    background: #202020;
+    color: white;
+    padding: 30px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer .brand {
+    color: white;
+}
+
+.footer p {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.footer div {
+    display: flex;
+    gap: 20px;
+}
+
+.footer div a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer small {
+    width: 100%;
+    color: #999;
+    font-size: 10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    .site-header {
+        padding: 0 5%;
+    }
+
+    .nav {
+        gap: 10px;
+    }
+
+    .contact-layout {
+        gap: 5%;
+    }
+}
+
+@media(max-width: 760px) {
+    .site-header {
+        height: auto;
+        padding: 20px 5%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .nav {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .page-hero {
+        padding: 45px 5%;
+    }
+
+    .page-hero h1 {
+        font-size: 40px;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+        padding: 35px 5%;
+        gap: 35px;
+    }
+
+    .form-card {
+        padding: 22px 17px;
+    }
+
+    .footer {
+        padding: 25px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="site-header">
+
+    <a class="brand" href="overview.html">
+        <span class="brand-mark">R</span> RideNest
+    </a>
+
+    <nav class="nav">
+        <a href="overview.html">Overview</a>
+        <a href="vehicleinformation.html">Vehicle Information</a>
+        <a href="bookride.html">Book Ride</a>
+        <a href="Howitworks.html">How It Works</a>
+        <a href="Contactus.html">Contact Us</a>
+    </nav>
+
+
+    <a class="nav-cta" href="vehicleinformation.html">
+        Explore vehicles ↗️
+    </a>
+
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+
+<section class="page-hero">
+
+    <span class="eyebrow">
+        WE'RE HERE TO HELP / 05
+    </span>
+
+    <h1>
+        Questions? <em>Let's talk.</em>
+    </h1>
+
+    <p>
+        Send a message about the platform, vehicle listings,
+        or your demo booking.
+    </p>
+
+</section>
+
+<!-- CONTACT SECTION -->
+
+<section class="contact-layout">
+
+    <!-- LEFT SIDE -->
+
+    <div class="contact-copy">
+
+        <span class="eyebrow">
+            GET IN TOUCH
+        </span>
+
+        <h2>
+            A little help goes a long way.
+        </h2>
+
+        <p>
+            Use the form to try the contact experience.
+            As this is an academic prototype, messages are
+            not sent to a live support team.
+        </p>
+
+        <div class="contact-detail">
+            <span>✉</span>
+            <div>
+                <b>Email support</b>
+                <p>hello@ridenest.demo</p>
+            </div>
+        </div>
+
+        <div class="contact-detail">
+            <span>◷</span>
+            <div>
+                <b>Support hours</b>
+                <p>Monday–Saturday · 9 AM–6 PM</p>
+            </div>
+        </div>
+
+        <div class="contact-detail">
+            <span>⌖</span>
+            <div>
+                <b>Service area</b>
+                <p>Sample listings · India</p>
+            </div>
+        </div>
+
+        <div class="contact-note">
+            ✦ For a real rental, always read the provider's
+            terms, insurance, deposit, and cancellation
+            policy before paying.
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+
+    <form class="form-card" id="contactForm">
+
+        <h2>Send us a message</h2>
+
+        <label>
+            Full name *
+            <input
+                type="text"
+                id="contactName"
+                placeholder="Your name"
+                required>
+        </label>
+
+        <label>
+            Email address *
+            <input
+                type="email"
+                id="contactEmail"
+                placeholder="you@example.com"
+                required>
+        </label>
+
+        <label>
+            Topic
+            <select id="contactTopic">
+                <option>General enquiry</option>
+                <option>Vehicle information</option>
+                <option>Booking support</option>
+                <option>Feedback</option>
+            </select>
+        </label>
+
+        <label>
+            Message *
+            <textarea
+                id="contactMessage"
+                rows="5"
+                placeholder="How can we help?"
+                required></textarea>
+        </label>
+
+        <button
+            class="btn btn-primary btn-wide"
+            type="submit">
+            Send demo message →
+        </button>
+
+        <p class="form-footnote">
+            Demo only — nothing is sent to a server.
+        </p>
+
+    </form>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <a class="brand" href="overview.html">
+        <span class="brand-mark">R</span> RideNest
+    </a>
+
+    <p>Move freely. Explore more.</p>
+
+    <div>
+        <a href="Contactus.html">Contact Us</a>
+        <a href="Howitworks.html">How It Works</a>
+    </div>
+
+    <small>
+        ©️ 2026 RideNest · Student project demo
+    </small>
+
+</footer>
+
+</body>
+</html>
