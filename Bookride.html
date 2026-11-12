@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Ride - RideNest</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f1;
+    color: #202020;
+}
+
+/* HEADER */
+
+header {
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #202020;
+}
+
+.logo span {
+    background: #e87542;
+    color: white;
+    padding: 9px 13px;
+    border-radius: 5px;
+    margin-right: 7px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #e87542;
+}
+
+.header-btn {
+    background: #202020;
+    color: white;
+    padding: 13px 20px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* HERO SECTION */
+
+.hero {
+    padding: 65px 8%;
+    background: #eeefe7;
+}
+
+.eyebrow {
+    color: #e87542;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin: 18px 0;
+}
+
+.hero h1 em {
+    color: #e87542;
+}
+
+.hero p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* BOOKING SECTION */
+
+.booking-section {
+    padding: 60px 8%;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* BOOKING FORM */
+
+.booking-form {
+    background: white;
+    padding: 35px;
+    border: 1px solid #e1e1d9;
+}
+
+.booking-form h2 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 28px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 13px;
+    border: 1px solid #ddd;
+    background: #fafaf7;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e87542;
+}
+
+/* CHECKBOX */
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+/* BUTTON */
+
+.book-btn {
+    width: 100%;
+    padding: 15px;
+    background: #e87542;
+    color: white;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.book-btn:hover {
+    background: #cf6032;
+}
+
+/* BOOKING SUMMARY */
+
+.summary {
+    background: #eeefe7;
+    padding: 30px;
+    border: 1px solid #e1e1d9;
+}
+
+.summary h2 {
+    font-size: 25px;
+    margin: 15px 0 25px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #d6d8ce;
+    font-size: 12px;
+}
+
+.summary-row span {
+    color: #777;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0 10px;
+}
+
+.total strong {
+    font-size: 25px;
+}
+
+.summary-note {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+footer {
+    background: #202020;
+    color: white;
+    padding: 30px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+footer p {
+    color: #aaa;
+    font-size: 12px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+footer small {
+    width: 100%;
+    color: #999;
+    font-size: 10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 800px) {
+
+    header {
+        height: auto;
+        padding: 20px 5%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .header-btn {
+        display: none;
+    }
+
+    .hero {
+        padding: 45px 5%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .booking-section {
+        grid-template-columns: 1fr;
+        padding: 35px 5%;
+    }
+
+    .booking-form {
+        padding: 22px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    footer {
+        padding: 25px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <a href="overview.html" class="logo">
+        <span>R</span>RideNest
+    </a>
+
+    <nav class="nav">
+        <a href="overview.html">Overview</a>
+        <a href="vehicleinformation.html">Vehicle Information</a>
+        <a href="bookride.html">Book Ride</a>
+        <a href="Howitworks.html">How It Works</a>
+        <a href="Contactus.html">Contact Us</a>
+    </nav>
+
+
+    <a href="vehicleinformation.html" class="header-btn">
+        Explore vehicles ↗️
+    </a>
+
+</header>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <span class="eyebrow">BOOKING DESK / 02</span>
+
+    <h1>
+        Make it a <em>ride to remember.</em>
+    </h1>
+
+    <p>
+        Choose your vehicle, select your travel dates
+        and fill in your details to book your ride.
+    </p>
+
+</section>
+
+<!-- BOOKING SECTION -->
+
+<section class="booking-section">
+
+    <!-- BOOKING FORM -->
+
+    <div class="booking-form">
+
+        <h2>Trip details</h2>
+
+        <p class="subtitle">
+            Fill in the details below to book your ride.
+        </p>
+
+        <form>
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+                    <label>Choose Vehicle *</label>
+
+                    <select required>
+                        <option value="">Select a vehicle</option>
+                        <option>Hyundai i20</option>
+                        <option>Honda City</option>
+                        <option>Royal Enfield Classic 350</option>
+                        <option>Yamaha MT-15</option>
+                        <option>Honda Activa 6G</option>
+                        <option>TVS Jupiter</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Pickup Date *</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Return Date *</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Pickup Location *</label>
+                    <input type="text"
+                    placeholder="Enter pickup location" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text"
+                    placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group full">
+                    <label>Email Address *</label>
+                    <input type="email"
+                    placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group full">
+                    <label>Phone Number *</label>
+                    <input type="tel"
+                    placeholder="Enter phone number" required>
+                </div>
+
+                <div class="form-group full">
+                    <label>Additional Message</label>
+                    <textarea rows="4"
+                    placeholder="Write your message here..."></textarea>
+                </div>
+
+            </div>
+
+            <label class="checkbox">
+                <input type="checkbox" required>
+                I confirm that the details provided are correct.
+            </label>
+
+            <button type="submit" class="book-btn">
+                Confirm Booking →
+            </button>
+
+        </form>
+
+        <p class="subtitle">
+            Student project demo. No real booking or payment is processed.
+        </p>
+
+    </div>
+
+    <!-- BOOKING SUMMARY -->
+
+    <div class="summary">
+
+        <span class="eyebrow">YOUR BOOKING</span>
+
+        <h2>Booking Summary</h2>
+
+        <div class="summary-row">
+            <span>Selected Vehicle</span>
+            <strong>Not selected</strong>
+        </div>
+
+        <div class="summary-row">
+            <span>Pickup Date</span>
+            <strong>-- / -- / ----</strong>
+        </div>
+
+        <div class="summary-row">
+            <span>Return Date</span>
+            <strong>-- / -- / ----</strong>
+        </div>
+
+        <div class="summary-row">
+            <span>Duration</span>
+            <strong>-- Days</strong>
+        </div>
+
+        <div class="total">
+            <span>Estimated Total</span>
+            <strong>₹0</strong>
+        </div>
+
+        <div class="summary-note">
+            ✦ Please check your vehicle details,
+            pickup location and travel dates before
+            submitting your booking form.
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <a href="overview.html" class="logo">
+        <span>R</span>RideNest
+    </a>
+
+    <p>Move freely. Explore more.</p>
+
+    <div class="footer-links">
+        <a href="Contactus.html">Contact Us</a>
+        <a href="Howitworks.html">How It Works</a>
+    </div>
+
+    <small>
+        ©️ 2026 RideNest. All rights reserved.
+    </small>
+
+</footer>
+
+</body>
+</html>
