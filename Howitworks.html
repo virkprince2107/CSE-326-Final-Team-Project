@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideNest | How It Works</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f2;
+            color: #202321;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+
+        header {
+            height: 82px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e5e5dd;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            background: #e66b36;
+            color: white;
+            padding: 7px 12px;
+            border-radius: 8px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 13px;
+            font-weight: bold;
+            color: #777;
+        }
+
+        nav a:hover,
+        nav .active {
+            color: #e66b36;
+        }
+
+        .nav-btn {
+            background: #202321;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 4px;
+        }
+
+        /* Hero Section */
+
+        .hero {
+            padding: 75px 8% 55px;
+            background: #eeefe7;
+        }
+
+        .eyebrow {
+            color: #e66b36;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        .hero h1 em {
+            color: #e66b36;
+            font-family: Georgia, serif;
+            font-weight: normal;
+        }
+
+        .hero p {
+            color: #777d76;
+            font-size: 15px;
+            max-width: 550px;
+        }
+
+        /* Steps Section */
+
+        .steps-section {
+            padding: 65px 7%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .step-card {
+            background: white;
+            border: 1px solid #e5e5dd;
+            padding: 25px 22px;
+            min-height: 290px;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            color: #b7bcb0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            background: #fce7da;
+            color: #e66b36;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 25px 0;
+        }
+
+        .step-card h2 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 12px;
+            color: #777d76;
+            line-height: 1.8;
+        }
+
+        .step-card a {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            border-bottom: 1px solid #aaa;
+        }
+
+        .step-card a:hover {
+            color: #e66b36;
+        }
+
+        /* FAQ Section */
+
+        .faq-section {
+            padding: 65px 9%;
+            background: #eeefe7;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 9%;
+        }
+
+        .faq-section h2 {
+            font-size: 32px;
+            margin-top: 12px;
+        }
+
+        .faq-list details {
+            padding: 17px 0;
+            border-bottom: 1px solid #d5d8cd;
+        }
+
+        .faq-list summary {
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .faq-list p {
+            font-size: 12px;
+            color: #777d76;
+            margin-top: 12px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 30px 7%;
+            border-top: 1px solid #e5e5dd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #777d76;
+        }
+
+        footer a {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+
+        @media(max-width: 900px) {
+            .steps-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            header {
+                height: auto;
+                padding: 20px 5%;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            nav {
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 13px;
+            }
+
+            .nav-btn {
+                display: none;
+            }
+
+            .hero {
+                padding: 45px 6%;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .steps-section {
+                grid-template-columns: 1fr;
+                padding: 35px 5%;
+            }
+
+            .faq-section {
+                grid-template-columns: 1fr;
+                padding: 40px 6%;
+                gap: 25px;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+        <a href="overview.html" class="logo">
+            <span>R</span> RideNest
+        </a>
+
+     <nav class="nav">
+        <a href="overview.html">Overview</a>
+        <a href="vehicleinformation.html">Vehicle Information</a>
+        <a href="bookride.html">Book Ride</a>
+        <a href="Howitworks.html">How It Works</a>
+        <a href="Contactus.html">Contact Us</a>
+    </nav>
+
+
+        <a href="vehicleinformation.html" class="nav-btn">
+            Explore Vehicles ↗️
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+        <span class="eyebrow">THE PROCESS / 03</span>
+
+        <h1>
+            Four steps.<br>
+            <em>One great journey.</em>
+        </h1>
+
+        <p>
+            Designed to make finding and renting a vehicle
+            feel refreshingly simple.
+        </p>
+    </section>
+
+    <!-- Steps Section -->
+
+    <section class="steps-section">
+
+        <div class="step-card">
+            <span class="step-number">01</span>
+
+            <div class="step-icon">⌕</div>
+
+            <h2>Explore the fleet</h2>
+
+            <p>
+                Browse cars, bikes, and scooters.
+                Compare daily prices, seating, and
+                basic vehicle information.
+            </p>
+
+            <a href="vehicleinformation.html">Browse vehicles ↗️</a>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">02</span>
+
+            <div class="step-icon">▣</div>
+
+            <h2>Choose your dates</h2>
+
+            <p>
+                Select your pickup and return dates,
+                location, and the vehicle that fits
+                your plans.
+            </p>
+
+            <a href="Bookride.html">Start booking ↗️</a>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">03</span>
+
+            <div class="step-icon">✓</div>
+
+            <h2>Review your details</h2>
+
+            <p>
+                Check the rental duration and
+                estimated price before confirming
+                your booking.
+            </p>
+
+            <a href="Bookride.html">Review booking ↗️</a>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">04</span>
+
+            <div class="step-icon">↗️</div>
+
+            <h2>Hit the road</h2>
+
+            <p>
+                Complete the required verification,
+                collect your vehicle, and enjoy
+                your journey.
+            </p>
+
+            <a href="Contactus.html">Ask a question ↗️</a>
+        </div>
+
+    </section>
+
+    <!-- FAQ Section -->
+
+    <section class="faq-section">
+
+        <div>
+            <span class="eyebrow">GOOD TO KNOW</span>
+
+            <h2>Frequently asked questions.</h2>
+
+            <p style="color:#777d76; font-size:13px; margin-top:12px;">
+                Quick answers about RideNest.
+            </p>
+        </div>
+
+        <div class="faq-list">
+
+            <details>
+                <summary>Is this a real rental service?</summary>
+
+                <p>
+                    No. RideNest is a student project.
+                    It does not reserve real vehicles
+                    or collect payments.
+                </p>
+            </details>
+
+            <details>
+                <summary>Can I compare different vehicle types?</summary>
+
+                <p>
+                    Yes. You can compare cars, bikes,
+                    and scooters using the vehicle
+                    information page.
+                </p>
+            </details>
+
+            <details>
+                <summary>Where can I see my booking?</summary>
+
+                <p>
+                    You can check your submitted
+                    demo booking on the same device
+                    and browser.
+                </p>
+            </details>
+
+            <details>
+                <summary>What documents are required?</summary>
+
+                <p>
+                    A real rental provider may require
+                    valid identification and a
+                    driving licence.
+                </p>
+            </details>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+        <a href="overview.html" class="logo">
+            <span>R</span> RideNest
+        </a>
+
+        <p>Move freely. Explore more.</p>
+
+        <a href="Contactus.html">Contact Us</a>
+
+        <p>©️ 2026 RideNest · Student Project Demo</p>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideNest | How It Works</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f2;
+            color: #202321;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+
+        header {
+            height: 82px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e5e5dd;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            background: #e66b36;
+            color: white;
+            padding: 7px 12px;
+            border-radius: 8px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 13px;
+            font-weight: bold;
+            color: #777;
+        }
+
+        nav a:hover,
+        nav .active {
+            color: #e66b36;
+        }
+
+        .nav-btn {
+            background: #202321;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 4px;
+        }
+
+        /* Hero Section */
+
+        .hero {
+            padding: 75px 8% 55px;
+            background: #eeefe7;
+        }
+
+        .eyebrow {
+            color: #e66b36;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        .hero h1 em {
+            color: #e66b36;
+            font-family: Georgia, serif;
+            font-weight: normal;
+        }
+
+        .hero p {
+            color: #777d76;
+            font-size: 15px;
+            max-width: 550px;
+        }
+
+        /* Steps Section */
+
+        .steps-section {
+            padding: 65px 7%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .step-card {
+            background: white;
+            border: 1px solid #e5e5dd;
+            padding: 25px 22px;
+            min-height: 290px;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            color: #b7bcb0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            background: #fce7da;
+            color: #e66b36;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 25px 0;
+        }
+
+        .step-card h2 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 12px;
+            color: #777d76;
+            line-height: 1.8;
+        }
+
+        .step-card a {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            border-bottom: 1px solid #aaa;
+        }
+
+        .step-card a:hover {
+            color: #e66b36;
+        }
+
+        /* FAQ Section */
+
+        .faq-section {
+            padding: 65px 9%;
+            background: #eeefe7;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 9%;
+        }
+
+        .faq-section h2 {
+            font-size: 32px;
+            margin-top: 12px;
+        }
+
+        .faq-list details {
+            padding: 17px 0;
+            border-bottom: 1px solid #d5d8cd;
+        }
+
+        .faq-list summary {
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .faq-list p {
+            font-size: 12px;
+            color: #777d76;
+            margin-top: 12px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 30px 7%;
+            border-top: 1px solid #e5e5dd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #777d76;
+        }
+
+        footer a {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+
+        @media(max-width: 900px) {
+            .steps-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            header {
+                height: auto;
+                padding: 20px 5%;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            nav {
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 13px;
+            }
+
+            .nav-btn {
+                display: none;
+            }
+
+            .hero {
+                padding: 45px 6%;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .steps-section {
+                grid-template-columns: 1fr;
+                padding: 35px 5%;
+            }
+
+            .faq-section {
+                grid-template-columns: 1fr;
+                padding: 40px 6%;
+                gap: 25px;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+        <a href="overview.html" class="logo">
+            <span>R</span> RideNest
+        </a>
+
+     <nav class="nav">
+        <a href="overview.html">Overview</a>
+        <a href="vehicleinformation.html">Vehicle Information</a>
+        <a href="bookride.html">Book Ride</a>
+        <a href="Howitworks.html">How It Works</a>
+        <a href="Contactus.html">Contact Us</a>
+    </nav>
+
+
+        <a href="vehicleinformation.html" class="nav-btn">
+            Explore Vehicles ↗️
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+        <span class="eyebrow">THE PROCESS / 03</span>
+
+        <h1>
+            Four steps.<br>
+            <em>One great journey.</em>
+        </h1>
+
+        <p>
+            Designed to make finding and renting a vehicle
+            feel refreshingly simple.
+        </p>
+    </section>
+
+    <!-- Steps Section -->
+
+    <section class="steps-section">
+
+        <div class="step-card">
+            <span class="step-number">01</span>
+
+            <div class="step-icon">⌕</div>
+
+            <h2>Explore the fleet</h2>
+
+            <p>
+                Browse cars, bikes, and scooters.
+                Compare daily prices, seating, and
+                basic vehicle information.
+            </p>
+
+            <a href="vehicleinformation.html">Browse vehicles ↗️</a>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">02</span>
+
+            <div class="step-icon">▣</div>
+
+            <h2>Choose your dates</h2>
+
+            <p>
+                Select your pickup and return dates,
+                location, and the vehicle that fits
+                your plans.
+            </p>
+
+            <a href="Bookride.html">Start booking ↗️</a>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">03</span>
+
+            <div class="step-icon">✓</div>
+
+            <h2>Review your details</h2>
+
+            <p>
+                Check the rental duration and
+                estimated price before confirming
+                your booking.
+            </p>
+
+            <a href="Bookride.html">Review booking ↗️</a>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">04</span>
+
+            <div class="step-icon">↗️</div>
+
+            <h2>Hit the road</h2>
+
+            <p>
+                Complete the required verification,
+                collect your vehicle, and enjoy
+                your journey.
+            </p>
+
+            <a href="Contactus.html">Ask a question ↗️</a>
+        </div>
+
+    </section>
+
+    <!-- FAQ Section -->
+
+    <section class="faq-section">
+
+        <div>
+            <span class="eyebrow">GOOD TO KNOW</span>
+
+            <h2>Frequently asked questions.</h2>
+
+            <p style="color:#777d76; font-size:13px; margin-top:12px;">
+                Quick answers about RideNest.
+            </p>
+        </div>
+
+        <div class="faq-list">
+
+            <details>
+                <summary>Is this a real rental service?</summary>
+
+                <p>
+                    No. RideNest is a student project.
+                    It does not reserve real vehicles
+                    or collect payments.
+                </p>
+            </details>
+
+            <details>
+                <summary>Can I compare different vehicle types?</summary>
+
+                <p>
+                    Yes. You can compare cars, bikes,
+                    and scooters using the vehicle
+                    information page.
+                </p>
+            </details>
+
+            <details>
+                <summary>Where can I see my booking?</summary>
+
+                <p>
+                    You can check your submitted
+                    demo booking on the same device
+                    and browser.
+                </p>
+            </details>
+
+            <details>
+                <summary>What documents are required?</summary>
+
+                <p>
+                    A real rental provider may require
+                    valid identification and a
+                    driving licence.
+                </p>
+            </details>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+        <a href="overview.html" class="logo">
+            <span>R</span> RideNest
+        </a>
+
+        <p>Move freely. Explore more.</p>
+
+        <a href="Contactus.html">Contact Us</a>
+
+        <p>©️ 2026 RideNest · Student Project Demo</p>
+    </footer>
+
+</body>
+</html>
